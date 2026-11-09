@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日知隱私權政策</title>
+<meta name="description" content="日知（個人身體日記 APP）的隱私權政策：會處理哪些資料、資料存在哪裡、什麼時候會離開手機，以及怎麼刪除。">
+<!--
+  Source of truth: docs/PRIVACY_POLICY.md (the part after "以下是要公開的內容").
+  Keep this page in sync with it. No external fonts, scripts or trackers on purpose.
+  Published at https://cotton-grass-ouo.github.io/dayknow/privacy/ (repo cotton-grass-ouo.github.io, file dayknow/privacy/index.html). Re-upload after every change.
+-->
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #FAF7F2;
+    --text: #2C2C2A;
+    --muted: #5F5E5A;
+    --accent: #993C1D;
+    --accent-strong: #712B13;
+    --panel: #FAECE7;
+    --line: #E6DED3;
+    --todo-bg: #FFF1B8;
+    --todo-text: #5C4A00;
+    --sun: #D85A30;
+    --dot: #B4B2A9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1E1C1A;
+      --text: #ECE7E0;
+      --muted: #B5AEA5;
+      --accent: #F0A385;
+      --accent-strong: #F6C3AE;
+      --panel: #3A2820;
+      --line: #3A3632;
+      --todo-bg: #5C4A00;
+      --todo-text: #FFF1B8;
+      --sun: #E8734A;
+      --dot: #6E6C66;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 2.5rem 16px 4rem;
+  }
+  .logo { display: block; width: 84px; height: auto; margin: 0 0 0.75rem; }
+  .logo .sun { fill: var(--sun); }
+  .logo .dots { fill: var(--dot); }
+  h1 {
+    font-size: 1.75rem;
+    line-height: 1.4;
+    margin: 0 0 0.25rem;
+    color: var(--accent-strong);
+  }
+  h2 {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin: 2.5rem 0 0.75rem;
+    color: var(--accent-strong);
+    scroll-margin-top: 1rem;
+  }
+  /* Five small dots above each section, echoing the app icon. */
+  h2::before {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 8px;
+    margin: 0 auto 2rem;
+    background: radial-gradient(circle, var(--dot) 3px, transparent 3.5px) 0 0 / 13px 8px repeat-x;
+  }
+  .toc {
+    margin: 0 0 1.75rem;
+  }
+  .toc-title {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem;
+  }
+  .toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .toc li { margin: 0; }
+  .toc a {
+    display: inline-block;
+    padding: 0.2rem 0.85rem;
+    border-radius: 999px;
+    background: var(--panel);
+    color: var(--accent-strong);
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+  .toc a:hover, .toc a:focus-visible { text-decoration: underline; }
+  .top-link {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+  p { margin: 0 0 1rem; }
+  ul, ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+  li { margin-bottom: 0.5rem; }
+  li > ul { margin-top: 0.5rem; }
+  strong { font-weight: 700; }
+  a { color: var(--accent); overflow-wrap: anywhere; }
+  .date { color: var(--muted); margin-bottom: 2rem; }
+  .summary {
+    background: var(--panel);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+  }
+  .summary h2 { margin-top: 0; }
+  .summary h2::before { display: none; }
+  .summary p:last-child { margin-bottom: 0; }
+  .todo {
+    background: var(--todo-bg);
+    color: var(--todo-text);
+    border-radius: 4px;
+    padding: 0 0.25em;
+  }
+</style>
+</head>
+<body>
+<main id="top">
+
+<svg class="logo" viewBox="88 -2 336 212" role="img" aria-label="日知圖示">
+  <path class="sun" d="M142 112a114 114 0 0 1 228 0z"/>
+  <g class="dots">
+    <circle cx="114" cy="184" r="21"/><circle cx="185" cy="184" r="21"/><circle cx="256" cy="184" r="21"/><circle cx="327" cy="184" r="21"/><circle cx="398" cy="184" r="21"/>
+  </g>
+</svg>
+<h1>日知隱私權政策</h1>
+<p class="date">生效日期：2026 年 11 月 9 日</p>
+
+<nav class="toc" aria-label="目錄">
+  <p class="toc-title">目錄</p>
+  <ul>
+    <li><a href="#data">會處理的資料</a></li>
+    <li><a href="#storage">資料存在哪裡</a></li>
+    <li><a href="#permissions">權限</a></li>
+    <li><a href="#widget">桌面小工具</a></li>
+    <li><a href="#leaving">何時離開日知</a></li>
+    <li><a href="#family">幫家人記錄</a></li>
+    <li><a href="#deletion">保存與刪除</a></li>
+    <li><a href="#security">安全措施</a></li>
+    <li><a href="#changes">政策變更</a></li>
+    <li><a href="#contact">聯絡方式</a></li>
+  </ul>
+</nav>
+
+<p>日知是由木棉草（以下稱「開發者」）開發的個人身體日記，用來記錄身體狀況、飲食、感受與就醫資訊。日知是自我觀察紀錄工具，不是醫療器材，不能取代醫師的判斷。</p>
+
+<p>這份隱私權政策說明日知會處理哪些資料、資料存在哪裡、什麼時候會離開你的手機，以及你可以怎麼刪除。</p>
+
+<section class="summary">
+<h2>一句話說明</h2>
+<p><strong>你記的所有內容都只存在你自己的手機裡。日知不會連上網路（在「關於」點「隱私權政策」時，是由手機的瀏覽器打開網頁），開發者沒有伺服器，也收不到、看不到你記錄的任何內容。</strong>資料只有在你自己按下分享、列印、建立備份或把照片存到手機時，才會離開日知。</p>
+</section>
+
+<h2 id="data">日知會處理的資料</h2>
+<p>以下資料都是你自己輸入或選擇的，只存在你的手機裡：</p>
+<ul>
+  <li><strong>成員資料</strong>：你為自己或家人建立的成員名稱、出生年（選填），以及哪一位是你本人。</li>
+  <li><strong>紀錄</strong>：你寫的文字內容，以及你加上的身體感受（含 0–10 的程度）、飲食、用藥、就醫、檢驗、睡眠、心情、月經、身體數值（例如體重、血壓）等標記。</li>
+  <li><strong>照片</strong>：你拍攝或選擇附加在紀錄上的照片。手機拍的照片可能帶有拍攝地點、時間、手機型號等附帶資料，這些資料會跟著照片存在日知裡。</li>
+  <li><strong>追蹤、過敏清單、健康檔案的備註、成員資料的私人筆記</strong>：你自己整理的內容。</li>
+  <li><strong>APP 的設定</strong>：例如目前選的成員、垃圾桶保留天數、APP 鎖有沒有開、桌面小工具要不要先解鎖、上次備份的日期、存照片前要不要提醒。這些設定不含紀錄內容。</li>
+</ul>
+<p>日知<strong>不會</strong>讀取你的帳號、電話、通訊錄、所在位置、裝置識別碼或使用行為，也不需要註冊或登入。（照片原本就帶著的拍攝地點例外，見上面「照片」。）</p>
+
+<h2 id="storage">資料存在哪裡</h2>
+<ul>
+  <li>所有紀錄與照片存在手機上的<strong>加密資料庫</strong>裡。加密用的金鑰由手機的安全儲存區（Android Keystore）保護，不會顯示給任何人，也不會離開手機。</li>
+  <li>日知<strong>沒有網路權限</strong>，不會把資料傳到任何伺服器。</li>
+  <li>日知<strong>沒有</strong>加入任何分析、行為追蹤、廣告或當機回報的程式。</li>
+  <li>日知關閉了 Android 的自動備份與換機轉移功能，資料不會在你不知情的情況下被系統複製到雲端。</li>
+  <li>如果你在手機設定裡同意把使用情況與診斷資料分享給 Google，Google Play 可能會把日知當掉時的報告（手機型號、Android 版本、程式出錯的位置）匯總給開發者，用來修正問題。這些報告由 Google 依它自己的隱私權政策處理，不含你記錄的內容。</li>
+</ul>
+
+<h2 id="permissions">日知要求的權限</h2>
+<ul>
+  <li><strong>指紋或臉部辨識</strong>：只在你打開「APP 鎖」時使用，用手機本身的螢幕鎖來解鎖日知。日知不會讀取、也不會儲存你的指紋或臉部資料。APP 鎖預設是關閉的。</li>
+  <li><strong>防止手機進入休眠</strong>：只有桌面小工具會用到。點小工具時，日知會在背景把紀錄寫進加密資料庫，這個權限讓手機在寫完之前不會進入休眠。它不會讓手機一直醒著，也不會讀取任何資料。</li>
+  <li>日知<strong>沒有</strong>相機或讀取相簿的權限：拍照時是開啟手機的相機，選照片時是使用手機系統的選擇畫面，日知只會拿到你拍下或選擇的那幾張照片。</li>
+</ul>
+
+<h2 id="widget">桌面小工具</h2>
+<p>日知有一個可以放在手機桌面的小工具「身體現在感覺如何？」，點一下就能記下身體狀況與心情。</p>
+<ul>
+  <li>小工具上只有固定的文字與按鈕，<strong>不會顯示任何紀錄內容</strong>，例如你上次記了什麼、今天記了幾筆、剛才點了哪一個。</li>
+  <li>點了之後，日知只會把身體狀況與心情寫進手機裡的加密資料庫，記在你標為「本人」的成員名下；<strong>不會連上網路</strong>，也不會把資料傳到任何地方。</li>
+  <li>為了讓你接著選心情或補充幾句，小工具會暫時記住剛才那一筆是哪一筆、幾點記的，以及心情點過了沒（不記是哪一個心情）。這些不含身體狀況、心情或任何紀錄內容，存在日知自己的資料夾裡，其他 APP 讀不到。超過 2 分鐘就不能再補心情，手機省電時清掉的時間可能晚一點。</li>
+  <li>小工具拉高之後，多兩個按鈕「寫一筆」「拍照」，點了會打開日知（APP 鎖開著時要先解鎖），同樣記在「本人」名下；拍照用的是手機自己的相機，日知不需要相機權限。</li>
+  <li><strong>APP 鎖開著時</strong>，預設要先打開日知、解鎖之後才會記下。你可以在設定裡（或第一次這樣記錄時跳出的說明裡）選擇「桌面小工具不用解鎖」，之後點小工具就會直接記下。這樣一來，拿到你已經解開螢幕鎖的手機的人，也能用小工具替你新增紀錄，但看不到任何紀錄內容。關掉 APP 鎖時，這個選項會一起關掉。</li>
+  <li>小工具上寫著「身體現在感覺如何？」，看得到你手機桌面的人會知道你在使用身體日記。</li>
+</ul>
+
+<h2 id="leaving">資料什麼時候會離開日知</h2>
+<p>只有在你自己操作時，資料才會離開日知。看診筆記（PDF）送出之前會先讓你看過完整的內容；加密備份檔只會先告訴你有幾位成員、幾筆紀錄、幾張照片（原因見下面第 2 點）。</p>
+<ol>
+  <li><strong>看診筆記（PDF）</strong>：整理好給自己看診時帶著，或給醫師看。你可以預覽 PDF 的實際內容，再選擇「分享」（例如傳到 LINE、Email、雲端硬碟）或「列印／儲存為 PDF」。
+    <ul>
+      <li>PDF 上的姓名會換成「本人」或「家屬」，出生年換成大約的年齡，照片的附帶資料（包括拍攝地點）會被拿掉。</li>
+      <li>但你自己寫的紀錄內容與備註會原樣放進去，裡面如果有人名、地點或醫院名稱，不會自動拿掉。照片要你一張一張勾選才會附上，照片裡如果拍到臉或姓名，也不會自動遮掉。</li>
+    </ul>
+  </li>
+  <li><strong>加密備份檔</strong>：用來換手機或保存資料。
+    <ul>
+      <li>備份檔包含<strong>所有成員的全部資料</strong>，包括姓名、出生年，以及照片原本的附帶資料（例如拍攝地點），<strong>不會去除可識別個人的資訊</strong>，這樣才能原封不動地還原。</li>
+      <li>整份備份檔用你自己設定的密碼加密，存到你自己選的位置（例如手機的「下載」資料夾或你的 Google 雲端硬碟）。日知和開發者都不會記住這個密碼；<strong>忘記密碼就無法還原，開發者也無法幫你打開</strong>。</li>
+    </ul>
+  </li>
+  <li><strong>把照片存到手機</strong>：看照片時，你可以把正在看的那一張存到你自己選的資料夾。
+    <ul>
+      <li>存出去之前，照片的附帶資料（包括拍攝地點、時間、手機型號）會被拿掉；照片裡如果拍到臉或姓名，不會自動遮掉。</li>
+      <li>存出去的照片<strong>沒有加密</strong>，也不受 APP 鎖保護，手機上其他有相簿權限的 APP 可能看得到；如果存在會自動備份的資料夾，可能會被上傳到雲端。</li>
+    </ul>
+  </li>
+</ol>
+<p>開發者不會出售、出租或分享你的資料給任何人，因為開發者根本收不到這些資料。你用上述方式送出的內容，送給誰由你自己決定。</p>
+
+<h2 id="family">幫家人記錄時</h2>
+<p>日知可以幫家人代為記錄，所以你的手機上可能存著家人的健康資料。家人的資料和你自己的資料受到一樣的保護（加密資料庫、APP 鎖、送出前預覽、看診筆記會去除姓名）；加密備份檔同樣是例外，會帶著家人的姓名與完整資料。</p>
+<p>建議你讓被記錄的家人知道這件事。被記錄的家人在日知裡沒有自己的入口，如果他們想查看或刪除自己的資料，需要請記錄的人操作。</p>
+
+<h2 id="deletion">資料保存與刪除</h2>
+<ul>
+  <li>你的資料會一直留在手機裡，直到你自己刪除。</li>
+  <li><strong>刪除紀錄</strong>、追蹤、過敏等內容時，會先移到「垃圾桶」，超過保留天數（預設 7 天，可以在設定裡調整）後，下次打開日知時自動清除；你也可以隨時打開日知手動清空裡面的垃圾桶。</li>
+  <li>從紀錄上<strong>移除的照片</strong>不會進垃圾桶，下次打開日知時就會清除。</li>
+  <li><strong>永久刪除成員</strong>時，這位成員的姓名、出生年，以及所有紀錄、照片、追蹤、過敏、健康檔案與私人筆記的資料，都會從資料庫清除。</li>
+  <li><strong>解除安裝日知</strong>時，手機上的所有資料都會一起刪除。因為日知關閉了系統備份，解除安裝後無法從系統還原；需要保留資料，請先建立加密備份檔。</li>
+  <li>你自己存下來的備份檔與照片、分享或列印出去的 PDF，已經不在日知的控制範圍內，需要你自己刪除。舊的備份檔裡仍然會有你之後在日知刪除的資料。</li>
+</ul>
+
+<h2 id="security">安全措施</h2>
+<ul>
+  <li>資料庫加密，金鑰由手機的安全儲存區保護。</li>
+  <li>可以開啟 APP 鎖；開啟後，日知在「最近使用的應用程式」列表中會遮住紀錄內容（Android 12 以下的手機因應 Android 的系統設計會盡量遮住）。</li>
+  <li>分享或列印 PDF、建立或還原備份時產生的暫存檔，會在用完後刪除。</li>
+  <li>日知不會把健康資料寫進手機的系統記錄（log）或錯誤訊息裡。</li>
+</ul>
+<p>不過，任何人只要能解開你的手機，並在 APP 鎖關閉時打開日知（或知道你的手機密碼），就能看到日知裡所有成員的資料。請妥善保管你的手機與手機密碼。</p>
+
+<h2 id="changes">政策的變更</h2>
+<p>如果日知處理資料的方式改變（例如之後新增需要連網的功能），開發者會在新版本推出之前更新這份隱私權政策，並修改上方的生效日期。</p>
+
+<h2 id="contact">聯絡方式</h2>
+<p>對這份隱私權政策有任何問題，請寄信到：<a href="mailto:lisa.programmer+dayknow@gmail.com">lisa.programmer+dayknow@gmail.com</a></p>
+<p>開發者：木棉草</p>
+
+<p class="top-link"><a href="#top">回到最上面</a></p>
+
+</main>
+</body>
+</html>
